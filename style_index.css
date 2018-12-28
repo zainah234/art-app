@@ -81,6 +81,11 @@ li.dropdown {
   padding: 20px;
 }
 
+.columnt {
+  float: left;
+  width: 100%
+}
+
 /* Left and right column */
 .column.side {
   width: 20%;
