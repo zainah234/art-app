@@ -3,28 +3,58 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>How To Draw Hands</title>
+    <title>Open Hand Position</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="style.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
-<div class="header" href="#">
-  <h1>Art.it</h1>
-</div>
-<ul>
-  <li><a href="#home"><i class="fa fa-home" style="font-size:20px;"></i> HOME</a></li>
-  <li class="dropdown">
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-book" style="font-size:20px;"></i> FUNDAMENTALS<span class="caret"></span></a>
+
+<script>
+      //run the function whenever the user is scrolling the page
+window.onscroll = function(){stick()};
+
+
+//variable for the navigation bar
+var navigationBar = document.getElementById("stickyNavbar");
+
+//variable for the extra small navigation bar
+var xsNavbar = document.getElementById("stickyXsNavbar");
+
+
+
+
+//variable for the offset of the navigation bar from the top of the page
+var navigationOffset = navigationBar.offsetTop;
+
+//variable for the offset of the extra small navigation bar from the top of the page
+var xsNavbarOffset = xsNavbar.offsetTop;
+
+//function for setting sticky position on the navigation page
+function stick() {
+if (window.pageYOffset > navigationOffset) {
+navigationBar.classList.add("sticky");
+} else {
+navigationBar.classList.remove("sticky");
+}
+
+
+//make the contacts button stick to the top of the page
+if (window.pageYOffset > xsNavbarOffset) {
+xsNavbar.classList.add("sticky");
+} else {
+xsNavbar.classList.remove("sticky");
+}
+}
+</script>
+
+<ul id="stickyNavbar" onscroll="stick()">
+   <li class="lefts"><h1 class="anim2"><a class= "white" href="#home">ArtMine</h1></a></li>
+   <li><a href="#home"><i class="fa fa-envelope" style="font-size:20px;"></i> C O N T A C T</a></li>
+   <li><a href="canvas.html"target="_blank"><i class="fa fa-pencil" style="font-size:20px;"></i> P R A C T I C E</a></li>
+   <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-play-circle" style="font-size:20px;"></i> T U T O R I A L S</a>
     <div class="dropdown-content">
-      <a href="#">Elements of Art</a>
-      <a href="#">Principles of Art</a>
-      <a href="#">Colour Theory</a>
-      <a href="#">Quizzes</a>
-      <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-play-circle" style="font-size:20px;"></i> TUTORIALS</a>
-    <div class="dropdown-content">
-      <a href="#">Draw a Skull</a>
       <a href="#">Draw a Face</a>
       <a href="#">Draw Figures</a>
       <a href="#">Perspective</a>
@@ -32,75 +62,96 @@
       <a href="#">Draws Shoes</a>
       <a href="#">Draw Folds</a>
       <a href="#">Draw Hands</a>
-      <a href="#">Draw Hair/fur</a>
-      <a href="#">Draw Feet</a>
+      <a href="#">Draw Hair</a>
       <a href="#">Draw Animals</a>
       <a href="#">Draw Landscapes</a>
       <a href="#">Draw Trees</a>
       <a href="#">Draw Food</a>
-      <a href="#">Quizzes</a>
     </div>
   </li>
-  <li><a href="canvas.html"target="_blank"><i class="fa fa-pencil" style="font-size:20px;"></i> PRACTICE</a></li>
+  <li class="dropdown">
+   <a href="javascript:void(0)" href="#"><i class="fa fa-book" style="font-size:20px;"></i> F U N D A M E N T A L S</a>
+    <div class="dropdown-content" >
+      <a href="#">Elements of Art</a>
+      <a href="#">Principles of Art</a>
+      <a href="#">Colour Theory</a>
+      <a href="#">Quizzes</a> 
+      </li>
+  <!--<li><a href="#home"><i class="fa fa-home" style="font-size:20px;"></i> H O M E</a></li>-->
 </ul>
 
-<div class="sidebar">
-  <a style= "padding: 10px">QUICK LINKS</a>
-  <a href="#">Draw a Skull</a>
+    <div class="sidebar">
+  <as>TUTORIALS</as>
+      <a href="#">Draw Fruits</a>
       <a href="#">Draw a Face</a>
+      <a href="#">Draw Hair</a>
       <a href="#">Draw Figures</a>
       <a href="#">Perspective</a>
-      <a href="#">Draw Fruits</a>
+      <a class="active" href="#">Draw Hands</a>
       <a href="#">Draws Shoes</a>
       <a href="#">Draw Folds</a>
-      <a class="active" href="#">Draw Hands</a>
-      <a href="#">Draw Hair/fur</a>
-      <a href="#">Draw Feet</a>
       <a href="#">Draw Animals</a>
       <a href="#">Draw Landscapes</a>
       <a href="#">Draw Trees</a>
       <a href="#">Draw Food</a>
-      <a href="#">Quizzes</a>
 </div>
+
 
 <div class="content">
-  <h2>HOW TO DRAW HANDS</h2>
-<div class="gallery">
-    <img src="" alt="5Terre" >
-  <div class="desc"><strong>STEP ONE:</strong><br>The palm of our hands are shaped liked ovals. So the first step here would be to draw an oval. Fairly simple!</div>
+  <h2 class="anim">OPEN HAND POSITION</h2>
+  <div><center><img class="first" src="openhand.jpg" alt="5Terre" style="vertical-align: text-top;"></center><h3 class="blue">rhgfgfncgfcncngchgcgnfcngcnfHOW TO DRAW HANDSHOW TO DRAW HANDSHOW TO DRAW HANDSHOW TO DRAW HANDSHOW TO DRAW HANDSHOW TO DRAW HANDSHOW TO DRAW HANDSHOW TO DRAW HANDSHOW TO DRAW HANDSHOW TO DRAW HANDSHOW TO DRAW HANDSHOW TO DRAW HANDS</div></h3>
+<div class="gallery"> <div class="stroke">STEP 1:</div>
+    <img src="openhand1.jpg" alt="5Terre" >
+  <div class="desc">The palm of our hands are shaped liked ovals. So the first step here would be to draw an oval. Fairly simple!</div>
 </div>
 
-<div class="gallery">
-    <img src="https://lh3.googleusercontent.com/2e7I4qmW_2rkC0L-ZEs1Ag5Jq6vcRzMyJBvbKjulsG8x-A6zlXY8Mn8cLkDbVwA2Ib8kDY1g41RC72GCQLq18UeNq-eDO2iN3SBwZpuLyG04KSllefhdzyAdi_4j4RPNpBp14kkqEQhNYVujgFsevY_AW9gAGUKEy23pkONPUJKL5xvvnHjqs2x36CMmgxNd5QfIAt4seNSDLE3iWHfnshmSnHavsSrM6MaBbO2zIFgrS7wk65KwWMLjnXv_BUNYM8I1Q-FJgI8SRvGxgyfK9UWGsvE5cP_aSPxiZ64yjxS6rHxusarVtKydNHWbwucD30h4EsQkZH18Tg0p4JFiO52IvymPPjeCE7HcQZP2sNbJO_2leDyuPvK5hXJC9yRM-2ozSNvfyYUXRrMAZrOu_GU6qP8tifc_s4VkJ48Y_lSop3EX9lxJw7GOppsxBZJwi2C3BkKW9GYcPCzS2EiY3rAmDjivF8cJi-WUN6v83xYGuhvOrMQQZzUKeqfOz1E-RQl1lkGEO-7dJi61A5iNhh977heE2s9XE20BQlchmcekxKMS9nzGfGNHghswVoVvBpllNmwjEW6HXuDpsK1sFvX9dKY6h1A-5VXGM2V7CVyLQbh-E7psL-l5XEFW8_GAqRhnwuYiAU8RlNDAQx3PmZs=w269-h290-no" alt="Forest" >
-  <div class="desc">STEP TWO:<br> Next Draw a trapazoid shape surrounding the oval, because our palms are not literally ovals. This will ultimately be the base in order to add on fingers in the next step.</div>
+<div class="gallery"> <div class="stroke">STEP 2:</div>
+    <img src="openhand2.jpg" alt="Forest" >
+  <div class="desc">Next Draw a trapazoid shape surrounding the oval, because our palms are not literally ovals. This will ultimately be the base in order to add on fingers in the next step.</div>
 </div>
 
-<div class="gallery">
-    <img src="https://lh3.googleusercontent.com/KzuB3G0z2pzVs5inwtlqgheAkiwsNh1HDgpC8YNaPIBZoAOg7KVk9rv4yb668ly9TJTid93izdgxzsXGPeJ6s2-481qasIU83GaiBPT-nCElnq1ee3WhsdTfKFICMIOEZDQDv-GzyhOzPTcwY-SaItP0bwyylzV0iekrUlxGfYgfwhgENLMWvTpOFiUZLuzSpRaW9IsS8fVwmJatRyf8ga4KqS2HR_M_FPRqgurm_7CDynK487Lawi1vTCDGS6ITm75Ml7FjRiYSYap2clMa8CrqzNQ9MDbpfL-wLFUy82k8w6MeYJGZ2R6Ns9bdISMlAbuO9wTpl1CgIZPIMSq0NMXRqqhbAIJWBOKsWgprwcd5OvOqjOBkIAlymjACEzwjEj_Y6Uu14i3pfH4jT18DKn1k_7CUwkbHc_2RagblSsdjHJd6gYHQkuRA1gZLUF76PQtNUFN6gdXsd7-aGSW0IWX5IiVryLiUL1qyIY6M_zvkyIh_lyT83ZUigklkDRQ-RhpoRyDlryTbFhlzBh4o-GEiylDC_vM1igffLtCvRp9SC6mv2ADJiIDwiNt3h9ZZ8XwJ_uuSyRepzc1rcgdFJku1sAiyOYZQp_YyDFkTqQmk-2SZcRc90AwIcWo_3KaL5AHSBszbr2arG545lkrRGVM=w292-h341-no" alt="Northern Lights">
-  <div class="desc">STEP THREE:<br>Now for the thumb draw a triangle, which is where the thumb joines the side of the palm. For thje fingers, make a rough sketch as to how long they will be. For the hands, the pinky is always the lowest, then the ring finger is the next highest, then the index fiinger is higher, and finally the middle finger is the highest.</div>
+<div class="gallery"> <div class="stroke">STEP 3:</div>
+    <img src="openhand3.jpg" alt="Northern Lights">
+  <div class="desc">Now for the thumb draw a triangle, which is where the thumb joines the side of the palm. For thje fingers, make a rough sketch as to how long they will be. For the hands, the pinky is always the lowest, then the ring finger is the next highest, then the index fiinger is higher, and finally the middle finger is the highest.</div>
 </div>
 
-<div class="gallery">
-    <img src="https://lh3.googleusercontent.com/-hTTZfHwCWG5ufdyCFQ6K2XJT6lX19XIkkVTxb1IPx6Yi5d3fpPtT4nAk8l2eze_VnBvFEyp3QQ_kDRlNWi-lGF8go1ftEzpEEwKfWxgJ-0z-hnCaqMebuIbSD1kZCThiqt2E0e4_xO4sywsSiLrnmRDp_fqTKc69tj6YR75CS2jcRnGuPlCGIWwABSbIfHEFDr0OI-M183mmibUdgve09-WyCu6TpXUxW3SQLWNP7hqclSpeB_cveTlEeGPrZVUaH1byRKBM1xqXKbAkkTK9PFhcyZbvn2m8CkmWJ3D8tTQ1UB6fQZPwsCbOYlje0OoA1ihFJGL4FOu8DoaTqoFNaVQNBKY_Edam98EAfS2YhBqPCn2DAamRbwrxGtLmE4kuzsDAJcYxga9BH1FFONVtItDIwRzrHluspotPgdVGj9ES5fsQdDOIo6ToZLnuUGCQ0LTm8N_t9enHxct1eolH08h1eqQ3mEyIxaoCRH2SjOoCoEDm7H8E7ZEdX07W_Y_u5cjJWncTHpYPvaA-d33GxJQ_8wKOBbnlCN_7JFK3tar5vlsOisfE02_yK0U2yhFpFUCMLTMU0tr9wOItt5t-ACOgV9WbIyjdqZIhGcRCW0P6CjPTPawH-2KsNgNYWx9_mylVYGQyUQA9tduwRuALHw=w293-h334-no" alt="Mountains">
-  <div class="desc">STEP FOUR:<br>Now for the triangle, add on the thumb so that it's facing diagonally away from the palm. Notince the curves on the thumb. For the fingers, make sure to draw them within the guidlines you initially made.</div>
+<div class="gallery"> <div class="stroke">STEP 4:</div>
+    <img src="openhand4.jpg" alt="Mountains">
+  <div class="desc">Now for the triangle, add on the thumb so that it's facing diagonally away from the palm. Notince the curves on the thumb. For the fingers, make sure to draw them within the guidlines you initially made.</div>
 </div>
 
-<div class="gallery">
-    <img src="https://lh3.googleusercontent.com/cT9oS6gowVinizLL-JIaEnFuto_TNbnxNCCEeGnPFXRQjmj07IV7wQilTMsIjVeTbumi3YaRN3g84v7EXKODb6rqrvHuODPJxk1xqckvbr08Nscx5aH1iWOVC7iWf0xNAojTSizXBgPLhixTK4_yqL-zj7Kg5SDHNIqNVp9XiAjwuK_VuqH6Wg5N1Lrh1pOFW-9DcCS4HqzNZb1qkPxjDv9VNv-GBUpjgji-oZZ9EtJl8Vsm9AuJgwBba7BGlvQpzOoCqgosmzBEpzf16CBW9MWVcTfLb3v-B6CzXWZ101qwH8eEy0Z9Ok68VfbUA_3lURhCa_ZrWIFY1qM5ALKIUONAODN6-YHQIug_jeToGJBRyyGEQFechKlRFphvl4u3wobrP6LcgOfgYaTeV18TA4-F71f__b9V_UYeyz4WnKrprF8o8CNM6gZpS8iecq2e1aSJ1wLaKL3BDtPTw06uNmOWHYM4ToF-_ox2TFSeqJ-wVCQfCXyZyEexBU73xmQx5Wv7V2NmjWS209uFzaYRUh75E6s7mTPsM-rxnQtuJT23gcuMx7jQkwtSx7lAGx2ucdizZK5riHXedIXQ34Mf-EDFiRObbcTcwG-cXwho1nwj_FxcYnSq4XfMjx1emnwyO1rXdz1sH3ptSgncdky3BOI=w261-h342-no" alt="Mountains" style="transform: scaleX(-1);">
-  <div class="desc">STEP FIVE:<br>Remove the structure lines to get a basic shape of the hand.</div>
+<div class="gallery"> <div class="stroke">STEP 5:</div>
+    <img src="openhand5.jpg" alt="Mountains" style="transform: scaleX(-1);">
+  <div class="desc">Remove the structure lines to get a basic shape of the hand.</div>
 </div>
 
-<div class="gallery">
-    <img src="https://lh3.googleusercontent.com/TpnQ-o0Ef-VOAUtqqgBictUNYktosu53Ksq6b9-bShNugFETeO7dcgDyMp6FOXSKyvFH-1RR5il1FDz-djkPFtMGAF7D75sJulwF9Qv_9o0amNx9sKkUL3GV8dcnoghoMjBXJt47BeRdHS33Gk-trx1D1q3hafQBtDcLSW97oc0z9KxaapmXB_xnq4MA7Yxs79IlrOBzt6ZDJ2uameZ-z4eP6Gwe12GDxXWk9kiaiX-FiTSEWhRBHIpXx6kmHNpeu-9rtlRe606N0MbZp2y_fnYh_iEYFR3C2V27N0KJLL2hyeqEmhrfEaPW_-z18ys8_ao4oBXPRfcgBc3unEdxxel7ft8bJka-sXJOrFZ_4ftCOiMyxB9q1Twq7pfEpZnszSV5IrS8rsVr9thADSaKh_obIp9uWxHCRJ6OXKzoH0B3q2wSzq8tYQ9d90PSHVR9MaoydLeFD64_iwDexiaJz9XHg_evJzIVlDw2Rq1Epbdwx2ygVchohSh6p3ISA8GKemrIwtxBrLIiY3CbnZtkoDZNDI3IuwI1YlU1GUVqvlLf7jNP6BGP1w37ejUg4X_-TyvJiqwdrR0MDCItBPkyS7PA4SsDRqeK2gyYMcy-S3feJ6SMj1jCHNgE7DPwG7kQRlKLFMcImAmhPu2Pu2C_qHmV=w294-h333-no" alt="Mountains" style="transform: scaleX(-1);">
-  <div class="desc">STEP SIX:<br> Shade based on where the light source is coming from. In this case the light source is coming from the top left. Notice the bumps on the sides of the palm and the dent in the center when shading. To learn more about shading refer to the forms in the Fundamentals of art.</div>
-</div>
-<p  class="test">
-<a href="#">Instagram</a><br>&nbsp</p>
+<div class="gallery"> <div class="stroke">STEP 6:</div>
+    <img src="openhand.jpg" alt="Mountains" style="transform: scaleX(-1);">
+  <div class="desc">Shade based on where the light source is coming from. In this case the light source is coming from the top left. Notice the bumps on the sides of the palm and the dent in the center when shading. To learn more about shading refer to the forms in the Fundamentals of art.</div>
 </div>
 
-<!-- <div class="footer">
+<div class="gallery" style= "width: 100%; height: 20px; margin: -5px; margin-bottom: 55px;" >
+  <div class="desc" style= " border: 10px solid rgb(255, 255, 255, 0); background-color: rgb(255, 255, 255, 0); box-shadow: 0px 8px 16px 0px rgba(0,0,0,0);"><div class="pagination">
+  <center><a href="#">&laquo;</a>
+  <a href="#">1</a>
+  <a class="active" href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">6</a>
+  <a href="#">&raquo;</a></center>
+</div></div>
+</div>
+<div class="gallery" style= "width: calc(100% + 21px); height: 50px; margin-bottom: -50px;">
+  <div class="descc">Shade based on where the light source is coming from. In this case the light source is coming from the top left. Notice the bumps on the sides of the palm and the dent in the center when shading. To learn more about shading refer to the forms in the Fundamentals of art.</div>
+</div>
+
+<!-- </div>
+<div class="footer">
   <h3>Footer</h3>
-</div> -->
+</div>-->
+
+
 
   </body>
 </html>
