@@ -6,11 +6,8 @@
 body {
   margin: 15px;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url(pixil-frame-0 (4).png);
-  //background-size: cover;
-  //background-position: center;
+  background-color: white;
   height: 100%;
-  //background-color: #ffffff;
 }
 
 h1 {
@@ -251,43 +248,12 @@ img {
 }
 }
 
-/*.topnav {
-  overflow: hidden;
-}
-
-.topnav a {
-  float: left;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-}
-
-.topnav a:hover {
-  color: black;
-}
-
-.topnav .icon {
-  display: none;
-}
-
-@media screen and (max-width: 700px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: orange;
+   color: white;
+   text-align: center;
 }
