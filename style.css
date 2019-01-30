@@ -373,4 +373,9 @@ p.testt {
   }
 }
 
+.descc a {
+  text-decoration: none;
+  color: orange;
+}
+
 </style>
