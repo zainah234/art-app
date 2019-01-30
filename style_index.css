@@ -305,7 +305,8 @@ img.yup {
   }
 }
 
-a {
-    text-decoration: none;
+.footer2 a {
+  text-decoration: none;
+  color: white;
 }
 
