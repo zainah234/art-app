@@ -92,6 +92,48 @@ li.dropdown {
     border-radius: 25px;
 }
         
+.footer2 {
+   position: static;
+   left: 0;
+   bottom: 0;
+   margin-left: -20px;
+   width: calc(100% + 35px);
+   background-color: orange;
+   color: white;
+   text-align: left;
+   padding-top: 1px;
+   padding-bottom: 1px;
+   text-decoration: none;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: calc(20% - 4px);
+  padding: 15px;
+  text-align: left;
+  line-height: 1.8;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.footer2 a {
+  text-decoration: none;
+  color: white;
+}
+        
  .p1 {
   background-color: rgb(255, 255, 255, 0.75);
   color: orange;
@@ -132,7 +174,7 @@ h1{
     <p>Twitter: @ArtMine</p></div>
    <h2>We'd love to recieve requests for tutorials, or clarify anything that is unclear.</h2>
     
-    <div w3-include-html="footer2.html"></div> 
+    <div w3-include-html="footer.html"></div> 
 
 <script>
 includeHTML();
