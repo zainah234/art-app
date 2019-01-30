@@ -10,74 +10,9 @@
   </head>
   <body>
 
-<script>
-      //run the function whenever the user is scrolling the page
-window.onscroll = function(){stick()};
+ <script src="script.js"></script>
 
-
-//variable for the navigation bar
-var navigationBar = document.getElementById("stickyNavbar");
-
-//variable for the extra small navigation bar
-var xsNavbar = document.getElementById("stickyXsNavbar");
-
-
-
-
-//variable for the offset of the navigation bar from the top of the page
-var navigationOffset = navigationBar.offsetTop;
-
-//variable for the offset of the extra small navigation bar from the top of the page
-var xsNavbarOffset = xsNavbar.offsetTop;
-
-//function for setting sticky position on the navigation page
-function stick() {
-if (window.pageYOffset > navigationOffset) {
-navigationBar.classList.add("sticky");
-} else {
-navigationBar.classList.remove("sticky");
-}
-
-
-//make the contacts button stick to the top of the page
-if (window.pageYOffset > xsNavbarOffset) {
-xsNavbar.classList.add("sticky");
-} else {
-xsNavbar.classList.remove("sticky");
-}
-}
-</script>
-
-<ul id="stickyNavbar" onscroll="stick()">
-   <li class="lefts"><h1 class="anim2"><a class= "white" href="index.html">ArtMine</h1></a></li>
-   <li><a href="contact.html"><i class="fa fa-envelope" style="font-size:20px;"></i> C O N T A C T</a></li>
-   <li><a href="canvas.html"target="_blank"><i class="fa fa-pencil" style="font-size:20px;"></i> P R A C T I C E</a></li>
-   <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-play-circle" style="font-size:20px;"></i> T U T O R I A L S</a>
-    <div class="dropdown-content">
-      <a href="face.html">Draw a Face</a>
-      <a href="figures.html">Draw Figures</a>
-      <a href="perspective.html">Perspective</a>
-      <a href="fruits.html">Draw Fruits</a>
-      <a href="shoes.html">Draws Shoes</a>
-      <a href="folds.html">Draw Folds</a>
-      <a href="hands.html">Draw Hands</a>
-      <a href="hair.html">Draw Hair</a>
-      <a href="animals.html">Draw Animals</a>
-      <a href="landscape.html">Draw Landscapes</a>
-      <a href="trees.html">Draw Trees</a>
-      <a href="food.html">Draw Food</a>
-    </div>
-  </li>
-  <li class="dropdown">
-   <a href="javascript:void(0)" href="#"><i class="fa fa-book" style="font-size:20px;"></i> F U N D A M E N T A L S</a>
-    <div class="dropdown-content" >
-      <a href="elements.html">Elements of Art</a>
-      <a href="principles.html">Principles of Art</a>
-      <a href="colour.html">Colour Theory</a>
-      <a href="quiz.html">Quizzes</a> 
-      </li>
-</ul>
+<div w3-include-html="topnav.html"></div> 
 
     <div class="sidebar">
   <as>TUTORIALS</as>
