@@ -117,7 +117,7 @@ img.first{
   border-radius: 25px;
 }
 /* Style the top navigation bar */
-ul {
+topnav {
     list-style-type: none;
     margin: -15px;
     padding: 0;
