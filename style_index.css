@@ -68,8 +68,8 @@ li a, .dropbtn {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: white;
-    color:  #ffaf1a;
+    background-color: #ffaf1a;
+    color:  white;
     border-radius: 25px;
 }
 
