@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+<script>
+      
+function check(){
+
+	var question1 = document.quiz.q1.value;
+	var question2 = document.quiz.q2.value;
+	var question3 = document.quiz.q3.value;
+  var question4 = document.quiz.q4.value;
+  var question5 = document.quiz.q5.value;
+	var correct = 0;
+
+
+	if (question1 == "male") {
+		correct++;
+}
+	if (question2 == "female") {
+		correct++;
+}	
+if (question3 == "other") {
+		correct++;
+	}
+
+if (question4 == "other") {
+		correct++;
+	}
+
+if (question5 == "other") {
+		correct++;
+	}
+	
+	var messages = ["Cmon...!", "You Can Do Better...", "Not Bad", "Great Job!", "Excellent!!!"];
+
+	document.getElementById("submit").style.visibility = "visible";
+
+	document.getElementById("message").innerHTML = messages[correct];
+
+	document.getElementById("correct").innerHTML = "You're score is " + correct + "/5"
+}
+
+</script>
+
+
+<center><form id="quiz" name="quiz">
+  <p> What element in emphasized in this image?</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Canal-HJB-TM.jpg"><br><br>
+  <input type="radio" name="q1" value="male" checked> Male<br>
+  <input type="radio" name="q1" value="female"> Female<br>
+  <input type="radio" name="q1" value="female"> Female<br>
+  <input type="radio" name="q1" value="other"> Other<br><br>
+
+<p> What element in emphasized in this image?</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Canal-HJB-TM.jpg"><br><br>
+   <input type="radio" name="q2" value="male" checked> Male<br>
+  <input type="radio" name="q2" value="female"> Female<br>
+  <input type="radio" name="q2" value="female"> Female<br>
+  <input type="radio" name="q2" value="other"> Other<br><br>
+
+<p> What element in emphasized in this image?</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Canal-HJB-TM.jpg"><br><br>
+  <input type="radio" name="q3" value="male" checked> Male<br>
+  <input type="radio" name="q3" value="female"> Female<br>
+  <input type="radio" name="q3" value="female"> Female<br>
+  <input type="radio" name="q3" value="other"> Other<br><br>
+
+<p> What element in emphasized in this image?</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Canal-HJB-TM.jpg"><br><br>
+  <input type="radio" name="q4" value="male" checked> Male<br>
+  <input type="radio" name="q4" value="female"> Female<br>
+  <input type="radio" name="q4" value="female"> Female<br>
+  <input type="radio" name="q4" value="other"> Other<br><br>
+
+<p> What element in emphasized in this image?</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Canal-HJB-TM.jpg"><br><br>
+  <input type="radio" name="q5" value="male" checked> Male<br>
+  <input type="radio" name="q5" value="female"> Female<br>
+  <input type="radio" name="q5" value="female"> Female<br>
+  <input type="radio" name="q5" value="other"> Other<br><br>
+
+<input id = "button" type = "button" value = "DONE!" onclick = "check();">
+
+</form>
+
+<div id = "submit">
+<p id = "correct"></p>
+<p id = "message"></p>
+</div></center>
+
+  </body>
+</html>
