@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+    <body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Canvas</title>
+    <link href="style_canvas.css" rel="stylesheet" type="text/css" />
+  </head>
+  </body>
+    
+    <div class="header">
+  <h2>PRACTICE!</h2>
+</div>
+
+    <script type="text/javascript" >
+    var canvas, ctx, flag = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag = false;
+
+    var x = "black",
+        y = 2;
+    
+    function init() {
+        canvas = document.getElementById('can');
+        ctx = canvas.getContext("2d");
+        w = canvas.width;
+        h = canvas.height;
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+        canvas.addEventListener("mousemove", function (e) {
+            findxy('move', e)
+        }, false);
+        canvas.addEventListener("mousedown", function (e) {
+            findxy('down', e)
+        }, false);
+        canvas.addEventListener("mouseup", function (e) {
+            findxy('up', e)
+        }, false);
+        canvas.addEventListener("mouseout", function (e) {
+            findxy('out', e)
+        }, false);
+        for (var i = 0; i < touches.length; i++) {
+    var color = colorForTouch(touches[i]);
+    var idx = ongoingTouchIndexById(touches[i].identifier);
+
+        }
+    }
+
+function handleMove(evt) {
+  evt.preventDefault();
+  canvas = document.getElementsByTagName("can")[0];
+  var ctx = canvas.getContext("2d");
+  var touches = evt.changedTouches;
+
+  for (var i = 0; i < touches.length; i++) {
+    var color = colorForTouch(touches[i]);
+    var idx = ongoingTouchIndexById(touches[i].identifier);
+
+    if (idx >= 0) {
+      console.log("continuing touch "+idx);
+      ctx.beginPath();
+      console.log("ctx.moveTo(" + ongoingTouches[idx].pageX + ", " + ongoingTouches[idx].pageY + ");");
+      ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
+      console.log("ctx.lineTo(" + touches[i].pageX + ", " + touches[i].pageY + ");");
+      ctx.lineTo(touches[i].pageX, touches[i].pageY);
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = color;
+      ctx.stroke();
+
+      ongoingTouches.splice(idx, 1, copyTouch(touches[i]));  // swap in the new touch record
+      console.log(".");
+    } else {
+      console.log("can't figure out which touch to continue");
+    }
+  }
+}
+    
+function colors(obj) {
+        x = (obj.value);
+    }
+
+    function color(obj) {
+        x = (obj.id);
+    }
+
+    function draw() {
+        ctx.beginPath();
+        ctx.moveTo(prevX, prevY);
+        ctx.lineTo(currX, currY);
+        ctx.strokeStyle = x;
+        ctx.lineWidth = y;
+        ctx.stroke();
+        ctx.closePath();
+    }
+    
+    function erase() {
+        var m = confirm("Are you sure you want to clear?");
+        if (m) {
+            ctx.clearRect(0, 0, w, h);
+            document.getElementById("canvasing").style.display = "none";
+            ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+    }
+    
+    function save() {
+        //document.getElementById("canvasing").style.border = "2px solid";
+        var dataURL = canvas.toDataURL();
+        document.getElementById("canvasing").src = dataURL;
+        document.getElementById("canvasing").style.display = "block";
+    }
+    
+    function findxy(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas.getBoundingClientRect().left;
+            currY = e.clientY - canvas.getBoundingClientRect().top;
+    
+            flag = true;
+            dot_flag = true;
+            if (dot_flag) {
+                ctx.beginPath();
+                ctx.fillStyle = x;
+                ctx.fillRect(currX, currY, 2, 2);
+                ctx.closePath();
+                dot_flag = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag = false;
+        }
+        if (res == 'move') {
+            if (flag) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas.getBoundingClientRect().left;
+                currY = e.clientY - canvas.getBoundingClientRect().top;
+                draw();
+            }
+        }
+    }
+    
+    </script>
+        <body onload="init()" ontouchstart="handleMove(evt)" ontouchend="handleMove(evt)"ontouchmove="handleMove(evt)"ontouchcancel="handleMove(evt)">
+</form>
+          <div><strong>CHOOSE COLOUR </strong><input type="color" name="favcolor" style="border:black;" value="black" onclick= "colors(this)">  </div>
+        <table><div class="row">
+          <div class="column side">
+        <tr>
+        <td>Hue:</td>
+        <td><div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ff3300;" id="#ff3300" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ff6600;" id="#ff6600" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ffcc00;" id="#ffcc00" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ccff33;" id="#ccff33" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#99ff33;" id="#99ff33" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#66ff33;" id="#66ff33" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#33cc33;" id="#33cc33" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#009933;" id="#009933" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#006666;" id="#006666" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#006699;" id="#006699" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#3333cc;" id="#3333cc" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#6600ff;" id="#6600ff" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#6600cc;" id="#6600cc" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:purple;" id="purple" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#9900cc;" id="#9900cc" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#cc00ff;" id="#cc00ff" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#cc00cc;" id="#cc00cc" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#cc0099;" id="#cc0099" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ff33cc;" id="#ff33cc" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ff3399;" id="#ff3399" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ff0066;" id="#ff0066" onclick="color(this)"></div></td></div></td>
+        <td><div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)";"></div></td></div></td>
+        </tr>
+        </table>
+        <table><div class="row">
+          <div class="column side">
+        <tr>
+        <td>Value:</td>
+        <td><div style="width:10px;height:10px;background:#ffe6e6;" id="#ffe6e6" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ffb3b3;" id="#ffb3b3" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ff8080;" id="#ff8080" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ff4d4d;" id="#ff4d4d" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#cc0000;" id="#cc0000" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#800000;" id="#800000" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#4d0000;" id="#4d0000" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#fff6e6;" id="#fff6e6" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ffe4b3;" id="#ffe4b3" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ffc966;" id="#ffc966" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ffb833;" id="#ffb833" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#e69500;" id="#e69500" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#b37400;" id="#b37400" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#805300;" id="#805300" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#4d3200;" id="#4d3200" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ffffe6;" id="#ffffe6" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ffffb3;" id="#ffffb3" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ffff80;" id="#ffff80" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ffff4d;" id="#ffff4d" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#e6e600;" id="#e6e600" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#b3b300;" id="#b3b300" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#808000;" id="#808000" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#4d4d00;" id="#4d4d00" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#e6ffe6;" id="#e6ffe6" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#b3ffb3;" id="#b3ffb3" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#66ff66;" id="#66ff66" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#1aff1a;" id="#1aff1a" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#00e600;" id="#00e600" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#00b300;" id="#00b300" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#006600;" id="#006600" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#004d00;" id="#004d00" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#003300;" id="#003300" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#e6e6ff;" id="#e6e6ff" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#b3b3ff;" id="#b3b3ff" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#8080ff;" id="#8080ff" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#4d4dff;" id="#4d4dff" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#0000cc;" id="#0000cc" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#000099;" id="#000099" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#000066;" id="#000066" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#f3e6ff;" id="#f3e6ff" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#e6ccff;" id="#e6ccff" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#cc99ff;" id="#cc99ff" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#a64dff;" id="#a64dff" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#8c1aff;" id="#8c1aff" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#6600cc;" id="#6600cc" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#4d0099;" id="#4d0099" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#330066;" id="#330066" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ffe6f9;" id="#ffe6f9" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ffccf2;" id="#ffccf2" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ff99e6;" id="#ff99e6" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#ff33cc;" id="#ff33cc" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#e600ac;" id="#e600ac" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#b30086;" id="#b30086" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#800060;" id="#800060" onclick="color(this)"></div></td>
+        </tr>
+        </table>
+        <table><div class="row">
+          <div class="column side">
+        <tr>
+        <td>Greyscale:</td>
+        <td><div style="width:10px;height:10px;background:white;" id="white" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#f2f2f2;" id="#f2f2f2" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#cccccc;" id="#cccccc" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#b3b3b3;" id="#b3b3b3" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#999999;" id="#999999" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#808080;" id="#808080" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#666666;" id="#666666" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#4d4d4d;" id="#4d4d4d" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#333333;" id="##333333" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:#1a1a1a;" id="#1a1a1a" onclick="color(this)"></div></td>
+        <td><div style="width:10px;height:10px;background:black;border: 0.5px solid #404040" id="black" onclick="color(this)"></div></td>
+        </tr>
+        </table>
+        <br><table><tr><td><div><strong>ERASER</strong></div></td>
+        <td><div style="width:15px;height:15px;background:white;border:2px solid black;" id="white" onclick="color(this)"></div>
+       </td></tr></table>
+          <table><td><div><strong>CHOOSE SIZE</strong></div></td>
+        <td><div class="slidecontainer">
+  <input type="range" min="0" max="15" value="2" class="slider" id="myRange"></td>
+  <td><p><span id="demo"></span></p>
+</div></td></tr></div></div>
+        </table>
+        <div class="row">
+          <div class="column middle">
+        
+        <tr><td><input type="button" value="save" id="btn" size="40" onclick="save()">
+        <input type="button" value="clear" id="clr" size="23" onclick="erase()"></td></tr>
+        <tr>
+          <td> <img id="canvasing" style="display:none;">
+          <canvas id="can" width="600" height="400" style="position:absolute;` margin:10px;background:white; "></canvas></tr>
+          </td></tr>
+          <tr><td> <div><img src="https://art.pixilart.com/095ccda8f3584a8.gif"></div>
+        <div><img src="https://art.pixilart.com/095ccda8f3584a8.gif"></div>
+        <div class="margintop"><div><img class="next" src="https://art.pixilart.com/095ccda8f3584a8.gif"></div>
+        <div><img class="next" src="https://art.pixilart.com/095ccda8f3584a8.gif"></div>
+        </div></td>
+        </tr></div></div>
+
+        <script> slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+  y = this.value;
+} </script>
+    </html>
